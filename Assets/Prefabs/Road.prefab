@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5636226414961031852}
   - component: {fileID: 7182638291277227399}
+  - component: {fileID: 4742973843729033330}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -47,6 +48,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01072552d37a274ba936c356697f14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4742973843729033330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212519226506390377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 0.5, z: 10}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &919916988642562318
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +82,7 @@ GameObject:
   - component: {fileID: 886802659625052477}
   - component: {fileID: 150814768145936696}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +188,7 @@ GameObject:
   - component: {fileID: 1425202728398281917}
   - component: {fileID: 1852816948986847676}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +293,7 @@ GameObject:
   - component: {fileID: 2695004013264147470}
   - component: {fileID: 7850113236283590367}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
