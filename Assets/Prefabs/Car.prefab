@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gas: 100
   horizontalMoveSpeed: 1
-  gasEfficiency: 1
+  gasEfficiency: 30
 --- !u!65 &7654383461059901758
 BoxCollider:
   m_ObjectHideFlags: 0
