@@ -20,7 +20,7 @@ public class CarController : MonoBehaviour
     {
         while (true)
         {
-            gas -= gasEfficiency * Time.deltaTime;
+            gas -= gasEfficiency;
             if (gas <= 0)
             {
                 break;
@@ -28,7 +28,7 @@ public class CarController : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         // TODO: 게임 종료
-        
+        GameManager.Instance.EndGame();
     }
 
     public void Move(float direction)
@@ -42,7 +42,7 @@ public class CarController : MonoBehaviour
         if (other.CompareTag("Gas"))
         {
             gas += 30;
-            // TODO: 가스 아이템 제거
+            other.gameObject.SetActive(false);
         }
     }
 }

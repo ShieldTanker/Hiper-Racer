@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class RoadController : MonoBehaviour
 {
+
+    [SerializeField] private GameObject[] gasObjects;
+
+    private void Start()
+    {
+        foreach (var obj in gasObjects)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var obj in gasObjects)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// 플레이어 차량이 도로에 진입하면 다음 도로를 생성
     /// </summary>
@@ -26,5 +45,11 @@ public class RoadController : MonoBehaviour
         {
             GameManager.Instance.DestroyRoad(gameObject);
         }
+    }
+
+    public void SpawnGas()
+    {
+        int index = Random.Range(0, gasObjects.Length);
+        gasObjects[index].SetActive(true);
     }
 }
