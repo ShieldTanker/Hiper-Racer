@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MoveButton rightMoveButton;
     [SerializeField] private TMP_Text gasText;
 
+    [SerializeField] private GameObject startPanelPrefab;
+    [SerializeField] private GameObject endPanelPrefab;
+    [SerializeField] private Transform canvasTransform;
+
     // 도로 오브젝트풀
     private Queue<GameObject> _roadPool = new Queue<GameObject>();
     private int roadPoolSize = 4;
@@ -62,7 +66,8 @@ public class GameManager : MonoBehaviour
 
         gameState = State.Start;
 
-        StartGame();
+        // 스타트 패널 표시
+        ShowStartPanel();
     }
 
     private void Update()
@@ -114,8 +119,37 @@ public class GameManager : MonoBehaviour
         }
 
         // 게임오버 패널 표시
+        ShowEndPanel();
     }
 
+    #region UI
+
+    /// <summary>
+    /// 시작 화면을 표시
+    /// </summary>
+    void ShowStartPanel()
+    {
+        PanelController startPanelCon = Instantiate(startPanelPrefab, canvasTransform).GetComponent<PanelController>();
+        startPanelCon.OnButtonClick += () =>
+        {
+            StartGame();
+            Destroy(startPanelCon.gameObject);
+        };
+    }
+
+    /// <summary>
+    /// 게임오버 화면으르 표시
+    /// </summary>
+    void ShowEndPanel()
+    {
+        PanelController endPanelCon = Instantiate(endPanelPrefab, canvasTransform).GetComponent<PanelController>();
+        endPanelCon.OnButtonClick += () =>
+        {
+            ShowStartPanel();
+            Destroy(endPanelCon.gameObject);
+        };
+    }
+    #endregion
     #region 도로 생성 및 관리
 
     /// <summary>
